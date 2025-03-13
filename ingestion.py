@@ -15,7 +15,7 @@ embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 
 
 def ingest_docs():
-    loader = ReadTheDocsLoader("langchain-docs/api.python.langchain.com/en/latest")
+    loader = ReadTheDocsLoader("langchain-docs/api.python.langchain.com/en/latest", encoding="utf-8")
 
     raw_documents = loader.load()
     print(f"loaded {len(raw_documents)} documents")
@@ -72,4 +72,4 @@ def ingest_docs2() -> None:
 
 
 if __name__ == "__main__":
-    ingest_docs2()
+    ingest_docs()

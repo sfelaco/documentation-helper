@@ -1,23 +1,13 @@
 from dotenv import load_dotenv
-
-load_dotenv()
-from typing import Set
-
-import streamlit as st
-from streamlit_chat import message
-
-from backend.core import run_llm
-
-st.set_page_config(
-    page_title="Your App Title",
-    page_icon="🧊",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
 # Add these imports
 from PIL import Image
 import requests
 from io import BytesIO
+from typing import Set
+import streamlit as st
+from streamlit_chat import message
+from backend.core import run_llm
+
 
 
 def create_sources_string(source_urls: Set[str]) -> str:
@@ -39,6 +29,17 @@ def get_profile_picture(email):
     response = requests.get(gravatar_url)
     img = Image.open(BytesIO(response.content))
     return img
+
+st.set_page_config(
+    page_title="Your App Title",
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+
+load_dotenv()
+
 
 
 # Custom CSS for dark theme and modern look
